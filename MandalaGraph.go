@@ -1,24 +1,37 @@
 package mygraph
 
 /**
- * @brief      Class for edge.
+ * @brief      Class for literary work.
  */
-type Edge struct {
-    Number     int
-    EdgeWeight float32
+type LiteraryWork struct {
+    Author     string
+    AuthorKey  int
+    PrimaryKey int
+    Letter     int
+    Name       string
 }
 
 /**
- * @brief      Class for node.
+ * @brief      Class for outer ring.
  */
-type Node struct {
-    Edges []Edge
+type OuterRing struct {
+    Gallery []LiteraryWork
+    Label   string
 }
 
 /**
- * @brief      Class for graph. Main
+ * @brief      Class for iner ring.
  */
-type Graph struct {
-    Nodes []Node
+type InerRing struct {
+    Right OuterRing
+    Left  OuterRing
+    Label string
+}
+
+/**
+ * @brief      Class for mandala graph.
+ */
+type MandalaGraph struct {
+    Field []InerRing
     size  int
 }
